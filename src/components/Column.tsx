@@ -13,6 +13,7 @@ export type ColumnProps = {
  * and sets the `justifyContent` to the` mainAxisAlignment`
  * and the `alignItems` to the `crossAxisAlignment`.
  * If `expand === true` it will set the height and width of the Flex to 100%.
+ * Passes all extra props to the Flex.
  */
 export const Column = ({
   mainAxisAlignment,
