@@ -6,7 +6,8 @@ import {
   Center,
   Row,
   useSpacedLayout,
-  useWindowSize
+  useWindowSize,
+  RowOnDesktopColumnOnMobile
 } from 'buttered-chakra'
 import 'buttered-chakra/dist/index.css'
 
@@ -63,6 +64,18 @@ const App = () => {
         <Box bg='whatsapp.500' mb={spacing} h={childSizes[1]} w='50px' />
         <Box bg='whatsapp.500' h={childSizes[2]} w='50px' />
       </Column>
+
+      <RowOnDesktopColumnOnMobile
+        mainAxisAlignment='space-around'
+        crossAxisAlignment='center'
+        height={{ md: '200px', xs: '400px' }}
+        width='90%'
+        bg='orange.500'
+      >
+        <Box bg='whatsapp.500' h='50px' w='50px' />
+        <Box bg='whatsapp.500' h='50px' w='50px' />
+        <Box bg='whatsapp.500' h='50px' w='50px' />
+      </RowOnDesktopColumnOnMobile>
     </Column>
   )
 }

@@ -1,21 +1,14 @@
 import React from 'react'
-import { Flex, FlexProps } from '@chakra-ui/core'
-import { MainAxisAlignment, CrossAxisAlignment } from '..'
+import { Flex } from '@chakra-ui/core'
+import { RowProps } from './Row'
 
-export type RowProps = {
-  mainAxisAlignment: MainAxisAlignment
-  crossAxisAlignment: CrossAxisAlignment
-  children: React.ReactNode
-  expand?: boolean
-} & FlexProps
-
-/** Creates a Flex with a row direction
+/** Creates a Flex with a row direction on desktop and a column direction on mobile.
  * and sets the `justifyContent` to the `mainAxisAlignment`
  * and the `alignItems` to the `crossAxisAlignment`.
  * If `expand === true` it will set the height and width of the Flex to 100%.
  * Passes all extra props to the Flex.
  */
-export const Row = ({
+export const RowOnDesktopColumnOnMobile = ({
   mainAxisAlignment,
   crossAxisAlignment,
   children,
@@ -29,7 +22,7 @@ export const Row = ({
 
   return (
     <Flex
-      flexDirection='row'
+      flexDirection={{ md: 'row', xs: 'column' }}
       justifyContent={mainAxisAlignment}
       alignItems={crossAxisAlignment}
       {...others}

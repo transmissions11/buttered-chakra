@@ -18,7 +18,7 @@ export function useSpacedLayout({
   let childSizes = []
 
   for (const percentage of childSizePercentages) {
-    childSizes.push(percentage * parentMinusSpacing)
+    childSizes.push(percentage * parentMinusSpacing + 'px')
   }
 
   return {
