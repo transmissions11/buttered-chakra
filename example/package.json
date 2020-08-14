@@ -1,5 +1,5 @@
 {
-  "name": "phux-example",
+  "name": "buttered-chakra-example",
   "homepage": ".",
   "version": "0.0.0",
   "private": true,
@@ -21,7 +21,11 @@
     "react-dom": "file:../node_modules/react-dom",
     "react-scripts": "file:../node_modules/react-scripts",
     "typescript": "file:../node_modules/typescript",
-    "phux": "file:.."
+    "buttered-chakra": "file:..",
+    "@chakra-ui/core": "file:../node_modules/@chakra-ui/core",
+    "@emotion/core": "file:../node_modules/@emotion/core",
+    "@emotion/styled": "file:../node_modules/@emotion/styled",
+    "emotion-theming": "file:../node_modules/emotion-theming"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

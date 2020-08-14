@@ -1,10 +1,10 @@
 {
-  "name": "phux",
+  "name": "buttered-chakra",
   "version": "1.0.0",
   "description": "Chakra-UI Extension Library",
   "author": "TransmissionsDev",
   "license": "AGPL-3.0",
-  "repository": "TransmissionsDev/phux",
+  "repository": "TransmissionsDev/buttered-chakra",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -24,7 +24,11 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.34",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -55,7 +59,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.34",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27"
   },
   "files": [
     "dist"
