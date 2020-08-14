@@ -31,7 +31,7 @@ export function useWindowSize() {
 }
 
 /** Returns the pixel count of the `percentage passed in * the height of the window`,
- * but will not return a value lower than the minimum passed to it.
+ * but will not return a value lower than `the minimum passed in * percentage passed in`.
  */
 export function useMinLockedViewHeight(
   minHeight: number,
