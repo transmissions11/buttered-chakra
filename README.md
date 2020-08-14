@@ -18,7 +18,7 @@ npm install --save buttered-chakra
 
 ## Usage
 
-See [Example](https://github.com/TransmissionsDev/buttered-chakra/tree/master/example) for usage examples!
+See [the example](https://github.com/TransmissionsDev/buttered-chakra/tree/master/example) for usage examples!
 
 ## License
 
