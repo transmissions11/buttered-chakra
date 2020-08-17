@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { PixelMeasurement } from '..'
 
 /** Gets the height and width of the current window. */
 export function useWindowSize() {
@@ -30,18 +31,21 @@ export function useWindowSize() {
   return windowSize
 }
 
-/** Returns the pixel count of the `percentage passed in * the height of the window`,
+/** Returns the pixel count of the height of the window,
  * but will not return a value lower than the minimum passed.
  */
-export function useMinLockedViewHeight(
-  minHeight: number,
-  viewHeightPercent: number
-) {
+export function useMinLockedWindowHeight(minHeight: number) {
   const { height } = useWindowSize()
 
   if (height <= minHeight) {
-    return minHeight
+    return {
+      windowHeight: new PixelMeasurement(minHeight),
+      isLocked: true
+    }
   } else {
-    return height * viewHeightPercent
+    return {
+      windowHeight: new PixelMeasurement(height),
+      isLocked: false
+    }
   }
 }

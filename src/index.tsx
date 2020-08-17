@@ -18,6 +18,26 @@ export type CrossAxisAlignment =
       xs: CrossAxisAlignmentStrings
     }
 
+export class PixelMeasurement {
+  size: number
+
+  constructor(num: number) {
+    this.size = num
+  }
+
+  asPxString(): string {
+    return this.size + 'px'
+  }
+
+  toString(): string {
+    return this.asPxString()
+  }
+
+  asNumber(): number {
+    return this.size
+  }
+}
+
 export { Center } from './components/Center'
 export { Row } from './components/Row'
 export { Column } from './components/Column'
@@ -28,4 +48,4 @@ export {
   PixelSize,
   useSpacedLayout
 } from './hooks/useSpacedLayout'
-export { useWindowSize, useMinLockedViewHeight } from './hooks/useWindowSize'
+export { useWindowSize, useMinLockedWindowHeight } from './hooks/useWindowSize'

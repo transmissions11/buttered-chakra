@@ -6,18 +6,18 @@ import {
   Center,
   Row,
   useSpacedLayout,
-  useWindowSize,
   RowOnDesktopColumnOnMobile,
   PercentageSize,
-  PixelSize
+  PixelSize,
+  useMinLockedWindowHeight
 } from 'buttered-chakra'
 import 'buttered-chakra/dist/index.css'
 
 const App = () => {
-  const { height } = useWindowSize()
+  const { windowHeight } = useMinLockedWindowHeight(600)
 
-  const { spacedParentHeight, spacing, childPixelSizes } = useSpacedLayout({
-    parentHeight: height * 0.5,
+  const { parentHeight, spacing, childSizes } = useSpacedLayout({
+    parentHeight: windowHeight.asNumber(),
     spacing: 20,
     childSizes: [
       new PercentageSize(0.5),
@@ -63,12 +63,22 @@ const App = () => {
       <Column
         mainAxisAlignment='flex-start'
         crossAxisAlignment='center'
-        height={spacedParentHeight}
+        height={parentHeight.asPxString()}
         bg='blue.500'
       >
-        <Box bg='whatsapp.500' mb={spacing} h={childPixelSizes[0]} w='50px' />
-        <Box bg='whatsapp.500' mb={spacing} h={childPixelSizes[1]} w='50px' />
-        <Box bg='whatsapp.500' h={childPixelSizes[2]} w='50px' />
+        <Box
+          bg='whatsapp.500'
+          mb={spacing.asPxString()}
+          h={childSizes[0].asPxString()}
+          w='50px'
+        />
+        <Box
+          bg='whatsapp.500'
+          mb={spacing.asPxString()}
+          h={childSizes[1].asPxString()}
+          w='50px'
+        />
+        <Box bg='whatsapp.500' h={childSizes[2].asPxString()} w='50px' />
       </Column>
 
       <RowOnDesktopColumnOnMobile

@@ -1,3 +1,5 @@
+import { PixelMeasurement } from '..'
+
 export class PercentageSize {
   num: number
 
@@ -40,21 +42,21 @@ export function useSpacedLayout({
       .filter((child) => child instanceof PixelSize)
       .reduce((past, value) => past + value.num, 0)
 
-  let childPixelSizes: string[] = []
+  let spacedChildren: PixelMeasurement[] = []
 
   for (const size of childSizes) {
     if (size instanceof PercentageSize) {
-      childPixelSizes.push(
-        size.num * parentMinusSpacingAndFixedChildSizes + 'px'
+      spacedChildren.push(
+        new PixelMeasurement(size.num * parentMinusSpacingAndFixedChildSizes)
       )
     } else {
-      childPixelSizes.push(size.num + 'px')
+      spacedChildren.push(new PixelMeasurement(size.num))
     }
   }
 
   return {
-    spacedParentHeight: parentHeight + 'px',
-    spacing: spacing + 'px',
-    childPixelSizes
+    parentHeight: new PixelMeasurement(parentHeight),
+    spacing: new PixelMeasurement(spacing),
+    childSizes: spacedChildren
   }
 }
