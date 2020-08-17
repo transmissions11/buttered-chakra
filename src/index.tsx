@@ -23,5 +23,9 @@ export { Row } from './components/Row'
 export { Column } from './components/Column'
 export { RowOnDesktopColumnOnMobile } from './components/RowOnDesktopColumnOnMobile'
 
-export { useSpacedLayout } from './hooks/useSpacedLayout'
+export {
+  PercentageSize,
+  PixelSize,
+  useSpacedLayout
+} from './hooks/useSpacedLayout'
 export { useWindowSize, useMinLockedViewHeight } from './hooks/useWindowSize'
