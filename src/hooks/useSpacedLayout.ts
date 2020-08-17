@@ -21,7 +21,7 @@ export class PixelSize {
 }
 
 /** Takes the height of the parent, the desired spacing between children,
- * and the desired percentage sizes of the children (relative to their parent minus the spacing desired)
+ * and the desired percentage sizes of the children (relative to their parent minus the spacing desired and the size of fixed sized children)
  * or the size of the child in pixels
  * and returns the pixel size of each child
  * that makes that child conform to the desired percentage.
