@@ -45,7 +45,9 @@ export { RowOnDesktopColumnOnMobile } from './components/RowOnDesktopColumnOnMob
 
 export {
   PercentageSize,
+  PercentOnDesktopPixelOnMobileSize,
   PixelSize,
   useSpacedLayout
 } from './hooks/useSpacedLayout'
-export { useWindowSize, useMinLockedWindowHeight } from './hooks/useWindowSize'
+export { useIsMobile } from './hooks/useIsMobile'
+export { useWindowSize, useLockedViewHeight } from './hooks/useWindowSize'

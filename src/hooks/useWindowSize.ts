@@ -32,14 +32,25 @@ export function useWindowSize() {
 }
 
 /** Returns the pixel count of the height of the window,
- * but will not return a value lower than the minimum passed.
+ * but will not return a value lower or higher than the minimum/maximum passed.
  */
-export function useMinLockedWindowHeight(minHeight: number) {
+export function useLockedViewHeight({
+  min = -1,
+  max = Number.MAX_SAFE_INTEGER
+}: {
+  min?: number
+  max?: number
+}) {
   const { height } = useWindowSize()
 
-  if (height <= minHeight) {
+  if (height <= min) {
     return {
-      windowHeight: new PixelMeasurement(minHeight),
+      windowHeight: new PixelMeasurement(min),
+      isLocked: true
+    }
+  } else if (height >= max) {
+    return {
+      windowHeight: new PixelMeasurement(max),
       isLocked: true
     }
   } else {

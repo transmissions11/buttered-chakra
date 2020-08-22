@@ -1,22 +1,43 @@
+import { useIsMobile } from './useIsMobile'
 import { PixelMeasurement } from '..'
 
 export class PercentageSize {
-  num: number
+  percent: number
 
   constructor(num: number) {
     if (num > 1) {
       throw new Error('Cannot have a percentage higher than 1!')
     }
 
-    this.num = num
+    this.percent = num
+  }
+}
+
+export class PercentOnDesktopPixelOnMobileSize {
+  percent: number
+  pixel: number
+
+  constructor({
+    percentageSize,
+    pixelSize
+  }: {
+    percentageSize: number
+    pixelSize: number
+  }) {
+    if (percentageSize > 1) {
+      throw new Error('Cannot have a percentage higher than 1!')
+    }
+
+    this.percent = percentageSize
+    this.pixel = pixelSize
   }
 }
 
 export class PixelSize {
-  num: number
+  pixel: number
 
   constructor(num: number) {
-    this.num = num
+    this.pixel = num
   }
 }
 
@@ -33,24 +54,33 @@ export function useSpacedLayout({
 }: {
   parentHeight: number
   spacing: number
-  childSizes: (PercentageSize | PixelSize)[]
+  childSizes: (PercentageSize | PercentOnDesktopPixelOnMobileSize | PixelSize)[]
 }) {
+  const isMobile = useIsMobile()
+
   let parentMinusSpacingAndFixedChildSizes =
     parentHeight -
     spacing * (childSizes.length - 1) -
     childSizes
       .filter((child) => child instanceof PixelSize)
-      .reduce((past, value) => past + value.num, 0)
+      .reduce((past, value) => past + (value as PixelSize).pixel, 0)
 
   let spacedChildren: PixelMeasurement[] = []
 
   for (const size of childSizes) {
-    if (size instanceof PercentageSize) {
+    if (
+      size instanceof PercentageSize ||
+      (size instanceof PercentOnDesktopPixelOnMobileSize && !isMobile)
+    ) {
       spacedChildren.push(
-        new PixelMeasurement(size.num * parentMinusSpacingAndFixedChildSizes)
+        new PixelMeasurement(
+          size.percent * parentMinusSpacingAndFixedChildSizes
+        )
       )
+    } else if (size instanceof PercentOnDesktopPixelOnMobileSize && isMobile) {
+      spacedChildren.push(new PixelMeasurement(size.pixel))
     } else {
-      spacedChildren.push(new PixelMeasurement(size.num))
+      spacedChildren.push(new PixelMeasurement(size.pixel))
     }
   }
 

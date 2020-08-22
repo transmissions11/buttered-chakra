@@ -7,14 +7,15 @@ import {
   Row,
   useSpacedLayout,
   RowOnDesktopColumnOnMobile,
+  PercentOnDesktopPixelOnMobileSize,
   PercentageSize,
   PixelSize,
-  useMinLockedWindowHeight
+  useLockedViewHeight
 } from 'buttered-chakra'
 import 'buttered-chakra/dist/index.css'
 
 const App = () => {
-  const { windowHeight } = useMinLockedWindowHeight(600)
+  const { windowHeight } = useLockedViewHeight({ min: 600 })
 
   const { parentHeight, spacing, childSizes } = useSpacedLayout({
     parentHeight: windowHeight.asNumber(),
@@ -22,7 +23,10 @@ const App = () => {
     childSizes: [
       new PercentageSize(0.5),
       new PixelSize(130),
-      new PercentageSize(0.5)
+      new PercentOnDesktopPixelOnMobileSize({
+        percentageSize: 0.5,
+        pixelSize: 100
+      })
     ]
   })
 
