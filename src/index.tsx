@@ -46,6 +46,7 @@ export { RowOnDesktopColumnOnMobile } from './components/RowOnDesktopColumnOnMob
 export {
   PercentageSize,
   PercentOnDesktopPixelOnMobileSize,
+  ResponsivePixelSize,
   PixelSize,
   useSpacedLayout
 } from './hooks/useSpacedLayout'
