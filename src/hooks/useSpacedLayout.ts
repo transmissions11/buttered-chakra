@@ -64,7 +64,12 @@ export function useSpacedLayout({
 }: {
   parentHeight: number
   spacing: number
-  childSizes: (PercentageSize | PercentOnDesktopPixelOnMobileSize | PixelSize)[]
+  childSizes: (
+    | PercentageSize
+    | PercentOnDesktopPixelOnMobileSize
+    | PixelSize
+    | ResponsivePixelSize
+  )[]
 }) {
   const isMobile = useIsMobile()
 
