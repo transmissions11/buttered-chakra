@@ -45,7 +45,7 @@ export class ResponsivePixelSize {
   desktop: number
   mobile: number
 
-  constructor(desktop: number, mobile: number) {
+  constructor({ desktop, mobile }: { desktop: number; mobile: number }) {
     this.mobile = mobile
     this.desktop = desktop
   }
