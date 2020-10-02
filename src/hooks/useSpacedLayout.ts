@@ -41,6 +41,16 @@ export class PixelSize {
   }
 }
 
+export class ResponsivePixelSize {
+  desktop: number
+  mobile: number
+
+  constructor(desktop: number, mobile: number) {
+    this.mobile = mobile
+    this.desktop = desktop
+  }
+}
+
 /** Takes the height of the parent, the desired spacing between children,
  * and the desired percentage sizes of the children (relative to their parent minus the spacing desired and the size of fixed sized children)
  * or the size of the child in pixels
@@ -79,6 +89,10 @@ export function useSpacedLayout({
       )
     } else if (size instanceof PercentOnDesktopPixelOnMobileSize && isMobile) {
       spacedChildren.push(new PixelMeasurement(size.pixel))
+    } else if (size instanceof ResponsivePixelSize && isMobile) {
+      spacedChildren.push(new PixelMeasurement(size.mobile))
+    } else if (size instanceof ResponsivePixelSize) {
+      spacedChildren.push(new PixelMeasurement(size.desktop))
     } else {
       spacedChildren.push(new PixelMeasurement(size.pixel))
     }
