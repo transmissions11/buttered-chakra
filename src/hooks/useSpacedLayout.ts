@@ -76,9 +76,18 @@ export function useSpacedLayout({
   let parentMinusSpacingAndFixedChildSizes =
     parentHeight -
     spacing * (childSizes.length - 1) -
-    childSizes
-      .filter((child) => child instanceof PixelSize)
-      .reduce((past, value) => past + (value as PixelSize).pixel, 0)
+    childSizes.reduce((past, value) => {
+      if (
+        value instanceof PixelSize ||
+        (value instanceof PercentOnDesktopPixelOnMobileSize && isMobile)
+      ) {
+        return past + value.pixel
+      } else if (value instanceof ResponsivePixelSize) {
+        return past + (isMobile ? value.mobile : value.desktop)
+      } else {
+        return past
+      }
+    }, 0)
 
   let spacedChildren: PixelMeasurement[] = []
 
@@ -94,10 +103,10 @@ export function useSpacedLayout({
       )
     } else if (size instanceof PercentOnDesktopPixelOnMobileSize && isMobile) {
       spacedChildren.push(new PixelMeasurement(size.pixel))
-    } else if (size instanceof ResponsivePixelSize && isMobile) {
-      spacedChildren.push(new PixelMeasurement(size.mobile))
     } else if (size instanceof ResponsivePixelSize) {
-      spacedChildren.push(new PixelMeasurement(size.desktop))
+      spacedChildren.push(
+        new PixelMeasurement(isMobile ? size.mobile : size.desktop)
+      )
     } else {
       spacedChildren.push(new PixelMeasurement(size.pixel))
     }
