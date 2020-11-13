@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, FlexProps } from '@chakra-ui/core'
+import { Flex, FlexProps } from '@chakra-ui/react'
 
 export type CenterProps = {
   children: React.ReactNode

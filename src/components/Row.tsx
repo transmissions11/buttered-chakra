@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, FlexProps } from '@chakra-ui/core'
+import { Flex, FlexProps } from '@chakra-ui/react'
 import { MainAxisAlignment, CrossAxisAlignment } from '..'
 
 export type RowProps = {

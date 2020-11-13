@@ -3,12 +3,12 @@ import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import { ChakraProvider, CSSReset } from '@chakra-ui/react'
 
 ReactDOM.render(
-  <ThemeProvider>
+  <ChakraProvider>
     <CSSReset />
     <App />
-  </ThemeProvider>,
+  </ChakraProvider>,
   document.getElementById('root')
 )

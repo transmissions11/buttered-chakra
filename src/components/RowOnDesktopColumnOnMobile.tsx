@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex } from '@chakra-ui/core'
+import { Flex } from '@chakra-ui/react'
 import { RowProps } from './Row'
 
 /** Creates a Flex with a row direction on desktop and a column direction on mobile.

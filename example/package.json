@@ -22,10 +22,9 @@
     "react-scripts": "file:../node_modules/react-scripts",
     "typescript": "file:../node_modules/typescript",
     "buttered-chakra": "file:..",
-    "@chakra-ui/core": "file:../node_modules/@chakra-ui/core",
+    "@chakra-ui/react": "file:../node_modules/@chakra-ui/react",
     "@emotion/core": "file:../node_modules/@emotion/core",
-    "@emotion/styled": "file:../node_modules/@emotion/styled",
-    "emotion-theming": "file:../node_modules/emotion-theming"
+    "@emotion/styled": "file:../node_modules/@emotion/styled"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3"

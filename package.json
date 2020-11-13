@@ -1,6 +1,6 @@
 {
   "name": "buttered-chakra",
-  "version": "3.5.0",
+  "version": "4.0.0",
   "description": "Chakra-UI Extension Library",
   "author": "TransmissionsDev",
   "license": "AGPL-3.0",
@@ -24,11 +24,10 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.0.34",
-    "@emotion/styled": "^10.0.27",
-    "emotion-theming": "^10.0.27"
+    "react": "*",
+    "@chakra-ui/react": "^1.0.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -60,10 +59,9 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "typescript": "^3.7.5",
-    "@chakra-ui/core": "^0.8.0",
-    "@emotion/core": "^10.0.34",
-    "@emotion/styled": "^10.0.27",
-    "emotion-theming": "^10.0.27"
+    "@chakra-ui/react": "^1.0.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0"
   },
   "files": [
     "dist"
