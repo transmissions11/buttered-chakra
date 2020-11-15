@@ -88,7 +88,7 @@ const App = () => {
       <RowOnDesktopColumnOnMobile
         mainAxisAlignment='space-around'
         crossAxisAlignment='center'
-        height={{ md: '200px', xs: '400px' }}
+        height={{ md: '200px', base: '400px' }}
         width='90%'
         bg='orange.500'
       >

@@ -22,7 +22,7 @@ export const RowOnDesktopColumnOnMobile = ({
 
   return (
     <Flex
-      flexDirection={{ md: 'row', xs: 'column' }}
+      flexDirection={{ md: 'row', base: 'column' }}
       justifyContent={mainAxisAlignment}
       alignItems={crossAxisAlignment}
       {...others}

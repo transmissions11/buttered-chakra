@@ -7,7 +7,7 @@ export type MainAxisAlignmentStrings =
 
 export type MainAxisAlignment =
   | MainAxisAlignmentStrings
-  | { md: MainAxisAlignmentStrings; xs: MainAxisAlignmentStrings }
+  | { md: MainAxisAlignmentStrings; base: MainAxisAlignmentStrings }
 
 export type CrossAxisAlignmentStrings = 'flex-start' | 'center' | 'flex-end'
 
@@ -15,7 +15,7 @@ export type CrossAxisAlignment =
   | CrossAxisAlignmentStrings
   | {
       md: CrossAxisAlignmentStrings
-      xs: CrossAxisAlignmentStrings
+      base: CrossAxisAlignmentStrings
     }
 
 export class PixelMeasurement {
