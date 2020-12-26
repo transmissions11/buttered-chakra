@@ -42,6 +42,7 @@ export { Center } from './components/Center'
 export { Row } from './components/Row'
 export { Column } from './components/Column'
 export { RowOnDesktopColumnOnMobile } from './components/RowOnDesktopColumnOnMobile'
+export { RowOrColumn } from './components/RowOrColumn'
 
 export {
   PercentageSize,
