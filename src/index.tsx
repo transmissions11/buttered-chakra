@@ -9,7 +9,11 @@ export type MainAxisAlignment =
   | MainAxisAlignmentStrings
   | { md: MainAxisAlignmentStrings; base: MainAxisAlignmentStrings }
 
-export type CrossAxisAlignmentStrings = 'flex-start' | 'center' | 'flex-end'
+export type CrossAxisAlignmentStrings =
+  | 'flex-start'
+  | 'center'
+  | 'flex-end'
+  | 'stretch'
 
 export type CrossAxisAlignment =
   | CrossAxisAlignmentStrings
