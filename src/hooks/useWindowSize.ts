@@ -2,8 +2,8 @@ import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { PixelMeasurement } from '..'
 
 type WindowSize = {
-  width: null | number
-  height: null | number
+  width: undefined | number
+  height: undefined | number
 }
 
 /** Gets the height and width of the current window. */
@@ -12,8 +12,8 @@ export function useWindowSize() {
     WindowSize,
     Dispatch<SetStateAction<WindowSize>>
   ] = useState({
-    width: null,
-    height: null
+    width: undefined,
+    height: undefined
   })
 
   useEffect(() => {
@@ -49,6 +49,7 @@ export function useLockedViewHeight({
   min?: number
   max?: number
 }) {
+  console.log("YO")
   const { height } = useWindowSize()
 
   if (!!height && height <= min) {

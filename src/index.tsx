@@ -23,9 +23,9 @@ export type CrossAxisAlignment =
     }
 
 export class PixelMeasurement {
-  size: number | null
+  size: number | undefined
 
-  constructor(num: number | null ) {
+  constructor(num: number | undefined ) {
     this.size = num
   }
 
@@ -37,7 +37,7 @@ export class PixelMeasurement {
     return this.asPxString()
   }
 
-  asNumber(): number | null {
+  asNumber(): number | undefined {
     return this.size
   }
 }
