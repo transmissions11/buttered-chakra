@@ -19,13 +19,11 @@ export function useWindowSize() {
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
-      if (typeof window !== undefined) {
-        // Set window width/height to state
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight
-        })
-      }
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
     }
 
     // Add event listener
@@ -53,12 +51,12 @@ export function useLockedViewHeight({
 }) {
   const { height } = useWindowSize()
 
-  if (height <= min) {
+  if (!!height && height <= min) {
     return {
       windowHeight: new PixelMeasurement(min),
       isLocked: true
     }
-  } else if (height >= max) {
+  } else if (!!height && height >= max) {
     return {
       windowHeight: new PixelMeasurement(max),
       isLocked: true
