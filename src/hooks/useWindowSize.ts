@@ -1,21 +1,31 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { PixelMeasurement } from '..'
+
+type WindowSize = {
+  width: null | number
+  height: null | number
+}
 
 /** Gets the height and width of the current window. */
 export function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
+  const [windowSize, setWindowSize]: [
+    WindowSize,
+    Dispatch<SetStateAction<WindowSize>>
+  ] = useState({
+    width: null,
+    height: null
   })
 
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
+      if (typeof window !== undefined) {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight
+        })
+      }
     }
 
     // Add event listener
