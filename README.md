@@ -1,25 +1,6 @@
-![Logo](https://github.com/TransmissionsDev/buttered-chakra/blob/master/logo.png?size="250px"?raw=true)
 
-# Buttered-Chakra
+# Buttered-Chakra [DEPRECATED]
 
 > Chakra-UI extension library designed to make using Chakra-UI flexboxes easier and more like Flutter!
 
-[![NPM](https://img.shields.io/npm/v/buttered-chakra.svg)](https://www.npmjs.com/package/buttered-chakra)
-
-## Install
-
-1. Follow Chakra installation steps: https://chakra-ui.com/getting-started
-
-2. Install `buttered-chakra`
-
-```bash
-npm install --save buttered-chakra
-```
-
-## Usage
-
-See [the example](https://github.com/TransmissionsDev/buttered-chakra/tree/master/example) for usage examples!
-
-## License
-
-AGPL-3.0 © [TransmissionsDev](https://github.com/TransmissionsDev)
+If you'd still like to use these components, just copy this single file from the Rari Captial dapp repo: https://github.com/Rari-Capital/rari-dApp/blob/master/src/utils/chakraUtils.tsx
