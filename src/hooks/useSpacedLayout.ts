@@ -62,8 +62,8 @@ export function useSpacedLayout({
   spacing,
   childSizes
 }: {
-  parentHeight: number
-  spacing: number
+  parentHeight: number | undefined
+  spacing: number | undefined
   childSizes: (
     | PercentageSize
     | PercentOnDesktopPixelOnMobileSize
@@ -72,6 +72,14 @@ export function useSpacedLayout({
   )[]
 }) {
   const isMobile = useIsMobile()
+  let spacedChildren: PixelMeasurement[] = []
+
+  if (!parentHeight || !spacing)
+    return {
+      parentHeight: new PixelMeasurement(parentHeight),
+      spacing: new PixelMeasurement(spacing),
+      childSizes: spacedChildren
+    }
 
   let parentMinusSpacingAndFixedChildSizes =
     parentHeight -
@@ -88,8 +96,6 @@ export function useSpacedLayout({
         return past
       }
     }, 0)
-
-  let spacedChildren: PixelMeasurement[] = []
 
   for (const size of childSizes) {
     if (

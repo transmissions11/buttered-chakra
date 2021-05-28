@@ -1,11 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { PixelMeasurement } from '..'
+
+type WindowSize = {
+  width: undefined | number
+  height: undefined | number
+}
 
 /** Gets the height and width of the current window. */
 export function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight
+  const [windowSize, setWindowSize]: [
+    WindowSize,
+    Dispatch<SetStateAction<WindowSize>>
+  ] = useState({
+    width: undefined,
+    height: undefined
   })
 
   useEffect(() => {
@@ -41,14 +49,15 @@ export function useLockedViewHeight({
   min?: number
   max?: number
 }) {
+  console.log("YO")
   const { height } = useWindowSize()
 
-  if (height <= min) {
+  if (!!height && height <= min) {
     return {
       windowHeight: new PixelMeasurement(min),
       isLocked: true
     }
-  } else if (height >= max) {
+  } else if (!!height && height >= max) {
     return {
       windowHeight: new PixelMeasurement(max),
       isLocked: true
